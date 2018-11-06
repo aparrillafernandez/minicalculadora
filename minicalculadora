@@ -1,24 +1,66 @@
-algoritmo minicalculadora
-  Definir num_a, num_b, num_res como Real
-  Definir opcion como Entero
-  
-  Escribir "Introducir numero a"
-  leer num_a
-  Escribir "Introducir numero b"
-  leer num_b
-  Escribir "Introducir 1(suma), 2(resta)"
-  leer opcion
-  
-  si (opcion =1) entonces
-      num_res = num_a + num_b
-      Escribir "La suma de ", num_a," y de ", num_b," es de ",num_res
-  sino
-      si (opcion = 2) entonces
-         num_res = num_a - num_b
-         Escribir "La resta de ", num_a," y de ", num_b," es de ",num_res
-      sino
-         Escribir "Esa operación no esta permitida"
-     finsi
- finsi
-fin
-  
+Funcion ret <- suma ( a,b )
+	Definir ret como Entero
+	ret <- a + b
+Fin Funcion
+
+Funcion ret <- Resta ( a,b )
+	Definir ret como Entero
+	ret <- a - b
+Fin Funcion
+
+Funcion ret <- Multiplicacion ( a,b )
+	Definir ret como Entero
+	ret <- a * b
+Fin Funcion
+Funcion ret <- Division ( a,b )
+	Si b=0 Entonces
+		Escribir "Te has equivocado"
+	SiNo
+		Definir ret como real
+		ret <- a / b
+	Fin Si
+	
+	
+Fin Funcion
+
+Algoritmo Minicalculadora
+	Definir op Como Entero
+	Definir a,b Como Entero
+	Definir resultado como Real
+	Escribir "Dame a"
+	Leer a
+	Escribir "Dame b"
+	Leer b
+	Escribir "Pulsa 1 (Suma)"
+	Escribir "Pulsa 2 (Resta)"
+	Escribir "Pulsa 3 (Multiplicación)"
+	Escribir "Pulsa 4 (División)"
+	Leer op
+	Si op=1 Entonces
+		resultado <- Suma(a,b)
+		Escribir resultado
+		
+	SiNo
+		Si op=2 Entonces
+			resultado<- Resta(a,b) 
+			Escribir resultado
+		SiNo
+			
+			Si op=3 Entonces
+				resultado <- Multiplicacion(a,b)
+				Escribir resultado
+			SiNo
+				Si op=4 Entonces
+					resultado<- Division(a,b)
+					Si b=0 Entonces
+						Escribir "¡No se puede realizar una división por 0!"
+					SiNo
+						Escribir resultado
+					Fin Si
+				SiNo
+					Escribir "Has introducido una opción no válida"
+				Fin Si
+			Fin Si
+		Fin Si
+	Fin Si
+FinAlgoritmo
